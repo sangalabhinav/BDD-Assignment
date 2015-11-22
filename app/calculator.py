@@ -20,9 +20,15 @@ class Calculator(object):
         number_types = (int, long, float, complex)
         if isinstance(l, number_types) and isinstance(h, number_types) and isinstance(b, number_types):
             #TODO compute volume here
-            return 0
+            return l*b*h
         else:
             raise ValueError
+
+    def util(self, n):
+        if n<=1:
+            return 1
+
+        return n*self.util(n-1)
 
 
     def factorial(self, n):
@@ -33,7 +39,7 @@ class Calculator(object):
                 return None
             else:
                 #TODO compute factorial here
-                return 0
+                return self.util(n)
         else:
             raise ValueError
 
